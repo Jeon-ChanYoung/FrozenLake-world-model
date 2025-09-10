@@ -10,3 +10,7 @@ transform = T.Compose([
 def preprocess(frame):
     img = Image.fromarray(frame)
     return transform(img)
+
+def to_PIL(tensor_frame):
+    to_pil = T.ToPILImage()
+    return to_pil(tensor_frame)
