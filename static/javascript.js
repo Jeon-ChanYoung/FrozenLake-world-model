@@ -11,7 +11,6 @@ async function reset() {
     drawFrame(data.frame);
 }
 
-
 async function step(action) {
     const res = await fetch("/api/step", {
         method: "POST",
@@ -31,11 +30,11 @@ function drawFrame(base64Img) {
     img.src = "data:image/png;base64," + base64Img;
 }
 
-// 키 입력 이벤트 등록
+document.getElementById("resetBtn").addEventListener("click", reset);
 document.addEventListener("keydown", (e) => {
     if (ACTIONS.hasOwnProperty(e.key)) {
         step(ACTIONS[e.key]);
     }
 });
 
-reset()
+window.onload = reset;

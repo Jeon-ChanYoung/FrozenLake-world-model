@@ -54,3 +54,4 @@ class Dynamics(nn.Module):
         action_onehot = F.one_hot(action, num_classes=4).float()
         x = torch.cat([latent, action_onehot], dim=1)
         return self.network(x)
+    
