@@ -6,6 +6,7 @@ This is a world model test using the FrozenLake environment. The goal is for the
 ## Features
 
 - Reinforcement learning environment: [FrozenLake-v1](https://www.gymlibrary.dev/)
+- Based on Pytorch
 - World Model:
   - Encoder (CNN)
   - Dynamics model
