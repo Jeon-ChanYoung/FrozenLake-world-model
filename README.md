@@ -1,7 +1,7 @@
 # FrozenLake-world-model
 This is a world model test using the FrozenLake environment. The goal is for the model to predict the next screen based on the user pressing WASD or the arrow keys on the current screen.
 
-<img src="screenshot.png" width="400px" alt="FrozenLake Screenshot">
+<img src="screenshot.jpeg" width="300px" alt="FrozenLake Screenshot">
 
 ## Features
 
