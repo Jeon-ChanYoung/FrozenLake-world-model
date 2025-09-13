@@ -2,18 +2,20 @@ import gymnasium as gym
 import torch
 import base64
 from io import BytesIO
-from utils.preprocess import preprocess, to_PIL
-from model import Encoder, Decoder, Dynamics
+from utils.preprocess import preprocess_128, to_PIL
+from model import Encoder_128, Decoder_128, Dynamics
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 current_frame = None
 
 env = gym.make("FrozenLake-v1", render_mode="rgb_array", is_slippery=False)
-encoder = Encoder().to(device)
-decoder = Decoder().to(device)
+encoder = Encoder_128().to(device)
+decoder = Decoder_128().to(device)
 dynamics = Dynamics().to(device)
 
-parameters = torch.load("frozenlake_worldmodel.pth")
+pth = "frozenlake_worldmodel_128x128_10.pth"
+
+parameters = torch.load(pth)
 encoder.load_state_dict(parameters["encoder"])
 decoder.load_state_dict(parameters["decoder"])
 dynamics.load_state_dict(parameters["dynamics"])
@@ -21,7 +23,7 @@ dynamics.load_state_dict(parameters["dynamics"])
 def update_current_frame(frame):
     global current_frame
     if not isinstance(frame, torch.Tensor):
-        frame_tensor = preprocess(frame)
+        frame_tensor = preprocess_128(frame)
     else:
         frame_tensor = frame
     current_frame = frame_tensor.detach()

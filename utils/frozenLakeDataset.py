@@ -11,7 +11,7 @@ class FrozenLakeDataset(Dataset):
 
     def __getitem__(self, index):
         state = self.data[index]["state_frame"] # (256, 256, 3)
-        state = preprocess(state)               # (64, 64, 3)
+        state = preprocess(state)               
         state = state.clone().detach().float()
         next_state = self.data[index]["next_frame"]
         next_state = preprocess(next_state)
