@@ -19,4 +19,4 @@ This is a world model test using the FrozenLake environment. The goal is for the
 Clone this repository and click the link that appears when you run **main.py**.
 
 ## Notes
-For smooth learning, the 256x256 size images have been reduced to 64x64. The collect_data-related files are solely for generating training data and are not used for any other purpose.
+For smooth learning, the 256x256 size images have been reduced to 128x128. The collect_data-related files are solely for generating training data and are not used for any other purpose.
